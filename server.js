@@ -1,7 +1,8 @@
 const express = require('express');
-
 const app = express();
 
-app.get('/api', (req, res) => res.send('Ritt example API!'))
+const routes = require('./router');
+
+app.get('/', routes);
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
