@@ -1,23 +1,33 @@
 exports.validateNewAccountInfo = (req, res) => {
-    // TODO - add validation for the minimum data we want
-    //        for account creation.
-    var responseBody = "";
+
     var validate = require('../../../global-utils/security/validators');
+
     var email = req.body.email;
-    if (validate.validateEmailAddress(email)) {
-        responseBody = 'valid email';
-    } else {
-        responseBody = 'invalid email';
-    }
-
     var password = req.body.pass;
-    if (validate.validatePassword(password)) {
-        responseBody = responseBody + ' valid password';
+    var passwordVerify = req.body.verifyPass;
+
+    var jsonResponse = require('../models/new-account-model');
+
+    if (validate.validateEmailAddress(email)) {
+        jsonResponse.email = "success!";
     } else {
-        responseBody = responseBody + ' invalid password';
+        jsonResponse.email = "failure.";
+    }
+    
+    if (validate.validatePassword(password)) {
+        jsonResponse.password = "success!";
+
+        if (password === passwordVerify) {
+            jsonResponse.passwordVerify = "success!";
+        } else {
+            jsonResponse.passwordVerify = "failure.";
+        }
+
+    } else {
+        jsonResponse.password = "failure.";
     }
 
-    res.send(responseBody);
+    res.json(jsonResponse);
 };
 
 exports.createNewAccount = (req, res) => {
