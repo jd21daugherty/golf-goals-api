@@ -1,9 +1,10 @@
 var fbAdmin = require('firebase-admin');
 
-exports.newUserAction = (newUserData) => {
+exports.newUserAction = (email, password) => {
+
     fbAdmin.auth().createUser({
-        uid: "uC1",
-        email: "controller@success.com"
+        email: email,
+        password: password
     })
     .then(function(userRecord) {
         console.log('Success creating new user: ', userRecord.uid);
