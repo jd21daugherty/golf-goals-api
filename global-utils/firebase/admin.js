@@ -1,11 +1,11 @@
 var admin = require('firebase-admin');
 
-var svcAccount = require('./auth-test-api-f2873-firebase-adminsdk-pk2oh-41ab7b59dc.json');
+var svcAccount = require('../../golf-goals-bae8a-firebase-adminsdk-imjlg-c2a325ee17.json');
 
 exports.initFB = () => {
     admin.initializeApp({
         credential: admin.credential.cert(svcAccount),
-        databaseURL: 'https://auth-test-api-f2873.firebaseio.com'
+        databaseURL: 'https://golf-goals-bae8a.firebaseio.com'
     });
 
     console.log('firebase initialized.');
