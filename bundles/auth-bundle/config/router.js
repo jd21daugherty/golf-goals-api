@@ -4,10 +4,8 @@ const login = require('../controllers/login-controller');
 
 // create account routes
 
-// validate-account-info
 routes.post('/validate-account-info', createAccount.validateNewAccountInfo);
 
-// create-account - this is a redirect from validate-account-info on success.
 routes.post('/create-account', createAccount.createNewAccount);
 
 // on success will redirect to a home page of sorts
