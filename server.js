@@ -1,7 +1,9 @@
+// include basic node modules
 const express = require('express');
 const app = express();
 const bodyparser = require('body-parser');
 
+// include global router
 const routes = require('./router');
 
 // for POST request parsing
