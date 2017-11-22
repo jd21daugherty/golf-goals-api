@@ -33,12 +33,12 @@ exports.validateNewAccountInfo = (req, res) => {
 exports.createNewAccount = (req, res) => {
     // TODO - add functionality for users creating accounts with
     //        Google, Facebook, and Twitter.
+    // TODO - create a flag from the validateNewAccountInfo function to
+    //        verify that the credentials passed to this function have been validated.
     var fbCreateUser = require('../../../global-utils/firebase/users/create-user');
 
     var email = req.body.email;
     var pass = req.body.pass;
 
-    fbCreateUser.newUserAction(email, pass);
-
-    res.send('success creating new user.');
+    fbCreateUser.addNewUserAction(email, pass);
 }; 

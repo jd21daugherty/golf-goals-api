@@ -2,13 +2,11 @@
 const express = require('express');
 const app = express();
 const bodyparser = require('body-parser');
-//const fbAdmin = require('./global-utils/firebase/admin');
 const firebase = require('./global-utils/firebase/firebase-init');
 
 // include global router
 const routes = require('./router');
 
-//fbAdmin.initFB();
 firebase.initFB();
 
 // for POST request parsing
