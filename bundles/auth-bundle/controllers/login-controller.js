@@ -1,5 +1,8 @@
+const emailSignIn = require('../../../global-utils/firebase/sign-in-users/email-sign-in');
+
 exports.login = (req, res) => {
     // TODO - login processing directly into app
+    emailSignIn.emailPasswordSignIn(req.body.email, req.body.pass);
 };
 
 exports.loginGoogle = (req, res) => {
