@@ -4,9 +4,9 @@ const login = require('../controllers/login-controller');
 
 // create account routes
 
-routes.post('/validate-account-info', createAccount.validateNewAccountInfo);
+routes.post('/validate-account-info', createAccount.validateAccountInfo);
 
-routes.post('/create-account', createAccount.createNewAccount);
+routes.post('/create-account', createAccount.createAccount);
 
 // on success will redirect to a home page of sorts
 // or an enter more info page

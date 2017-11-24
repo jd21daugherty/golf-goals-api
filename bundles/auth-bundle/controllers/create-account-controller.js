@@ -1,4 +1,4 @@
-exports.validateNewAccountInfo = (req, res) => {
+exports.validateAccountInfo = (req, res) => {
 
     var validate = require('../../../global-utils/security/validators');
 
@@ -30,7 +30,7 @@ exports.validateNewAccountInfo = (req, res) => {
     res.json(jsonResponse);
 };
 
-exports.createNewAccount = (req, res) => {
+exports.createAccount = (req, res) => {
     // TODO - add functionality for users creating accounts with
     //        Google, Facebook, and Twitter.
     // TODO - create a flag from the validateNewAccountInfo function to
