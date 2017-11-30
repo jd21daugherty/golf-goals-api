@@ -8,5 +8,5 @@ exports.initFB = () => {
         databaseURL: 'https://golf-goals-bae8a.firebaseio.com'
     });
 
-    console.log('firebase initialized.');
+    console.log('firebase admin initialized.');
 }
