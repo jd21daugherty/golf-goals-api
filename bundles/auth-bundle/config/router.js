@@ -14,6 +14,8 @@ routes.post('/create-account', createAccount.createAccount);
 
 // login routes
 
+routes.post('/view-token', login.showToken);
+
 // login
 routes.post('/login', login.login);
 

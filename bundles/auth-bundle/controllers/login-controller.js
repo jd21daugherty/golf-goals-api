@@ -16,3 +16,11 @@ exports.loginFacebook = (req, res) => {
 exports.loginTwitter = (req, res) => {
     // TODO - login processing with twitter
 };
+
+exports.showToken = (req, res) => {
+    const custTok = require('../../../global-utils/firebase/auth');
+
+    custTok.returnToken(function(newToken) {
+        res.status(200).send(`Your token is: ${newToken}`);
+    });
+};
