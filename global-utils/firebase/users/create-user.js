@@ -1,15 +1,14 @@
-var firebase = require('firebase');
+var fbAdmin = require('firebase-admin'); 
 
-exports.addNewUserAction = (email, password) => {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-    .catch(function(error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        if (errorCode == 'auth/weak-password') {
-            console.log('weak password');
-        } else {
-            console.log('somethin else.');
-        }
-        console.log(error);
-    });
-};
+exports.addNewUserAction = (email, password) => { 
+   fbAdmin.auth().createUser({ 
+       email: email,
+       password: password
+   }) 
+   .then(function(userRecord) { 
+       console.log('Success creating new user: ', userRecord.uid); 
+   }) 
+   .catch(function(error) { 
+       console.log('Error creating new user: ', userRecord.uid); 
+   }); 
+} 
